@@ -12,8 +12,8 @@ Route::group(['before'=>'guest'],function(){
 	Route::post('login',['as'=> 'doLogin','uses'=>'AuthController@doLogin']);
 
 
-	Route::get('register',['as'=> 'register','uses'=>'AuthController@register']);
-	Route::post('register',['as'=> 'doRegister','uses'=>'AuthController@doRegister']);
+	/*Route::get('register',['as'=> 'register','uses'=>'AuthController@register']);
+	Route::post('register',['as'=> 'doRegister','uses'=>'AuthController@doRegister']);*/
 	/*AuthController*/
 });
 

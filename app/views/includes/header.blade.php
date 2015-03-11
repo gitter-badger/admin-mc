@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>{{$title or 'Admin'}} - {{Config::get('customConfig.siteName')}}</title>
+    <title>{{$title or 'Admin'}} - {{Config::get('customConfig.names.siteName')}}</title>
 
 
     {{HTML::style('bootstrap/css/bootstrap.min.css')}}

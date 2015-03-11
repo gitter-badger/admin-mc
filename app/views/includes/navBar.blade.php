@@ -1,5 +1,5 @@
 <header class="main-header">
-    <a href="{{route('settings')}}" class="logo"><b>Admin Panel</b></a>
+    <a href="{{route('dashboard')}}" class="logo"><b>Admin Panel</b></a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->
@@ -14,7 +14,7 @@
 
             <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" >
-                   <span class="hidden-xs"><b>SUST Admission 2014-2015</b></span>
+                   <span class="hidden-xs"><b>MC College</b></span>
                 </a>
             </li>
         </ul>

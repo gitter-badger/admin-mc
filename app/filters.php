@@ -85,3 +85,30 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+
+Route::filter('Admin',function(){
+	if(! Entrust::hasRole(Config::get('customConfig.roles.Admin'))){
+		return Redirect::to('/');
+	}
+});
+
+Route::filter('Teacher',function(){
+	if(! Entrust::hasRole(Config::get('customConfig.roles.Teacher'))){
+		return Redirect::to('/');
+	}
+});
+
+Route::filter('Student',function(){
+	if(! Entrust::hasRole(Config::get('customConfig.roles.Student'))){
+		return Redirect::to('/');
+	}
+});
+
+Route::filter('AdminTeacher',function(){
+	if(! Entrust::hasRole(Config::get('customConfig.roles.Admin'))){
+		if(! Entrust::hasRole(Config::get('customConfig.roles.Teacher'))){
+			return Redirect::to('/');
+		}
+	}
+});

@@ -2,7 +2,14 @@
 
 
 return [
+	'names'=>[
+				'siteName'  => 'MC College'
+	],
 
-			'siteName'  => 'SUST Admission'
-
+	'roles' =>[
+			'Admin'     => 'Admin',
+			'Teacher'   => 'Teacher',
+			'Stuff'     => 'Stuff',
+			'Student'   => 'Student'
+	]
 ];
