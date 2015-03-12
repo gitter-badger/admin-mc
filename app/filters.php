@@ -112,3 +112,13 @@ Route::filter('AdminTeacher',function(){
 		}
 	}
 });
+
+Route::filter('AdminTeacherStuff',function(){
+	if(! Entrust::hasRole(Config::get('customConfig.roles.Admin'))){
+		if(! Entrust::hasRole(Config::get('customConfig.roles.Teacher'))){
+			if(! Entrust::hasRole(Config::get('customConfig.roles.Stuff'))){
+				return Redirect::to('/');
+			}
+		}
+	}
+});

@@ -15,7 +15,7 @@
             </li>
 
             <li>
-                <a href="../widgets.html">
+                <a href="{{route('notice.index')}}">
                     <i class="fa fa-th"></i> <span>Notice</span>
                 </a>
             </li>

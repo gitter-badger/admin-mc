@@ -1,9 +1,9 @@
 <!-- Footer ================================================================== -->
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
-        Copyright &copy; {{date('Y')}} | Site Version <strong>2.0</strong>
+        Copyright &copy; {{date('Y')}} | Site Version <strong>1.0</strong>
     </div>
-    Developed By <strong><a href="http://www.facebook.com/bondhu" data-toggle="modal">Burhan Uddin </a>[Version 1.0]</strong>,<strong><a href="http://www.facebook.com/bondhu">Yousuf Khan Ratul</a>,<a href="http://www.facebook.com/bondhu">Abu Shahriar Ratul</a>[Version 2.0]</strong>
+    Developed By <strong><a href="http://www.facebook.com/bondhu" data-toggle="modal"><strong><a href="http://www.facebook.com/bondhu">Yousuf Khan Ratul</a>,<a href="http://www.facebook.com/bondhu">Abu Shahriar Ratul</a>[Version 0.0.1]</strong>
 </footer>
 <!-- Placed at the end of the document so the pages load faster ============================================= -->
 <div class="modal fade" id="developerVersion1" tabindex="-1" role="dialog" aria-labelledby="AboutLabel" aria-hidden="true" style="display: none;">

@@ -40,3 +40,15 @@ Route::group(['before'=>'auth'],function(){
 
 });
 
+
+Route::group(['before'=>'auth|AdminTeacherStuff'],function(){
+
+
+	Route::get('notices',['as'=> 'notice.index','uses'=>'NoticeController@index']);
+	Route::get('notices/create',['as'=> 'notice.create','uses'=>'NoticeController@create']);
+	Route::post('notices',['as'=> 'notice.store','uses'=>'NoticeController@store']);
+	Route::get('notices/{id}/edit',['as'=> 'notice.edit','uses'=>'NoticeController@edit']);
+	Route::put('notices/{id}',['as'=> 'notice.update','uses'=>'NoticeController@update']);
+	Route::delete('notices/{id}',['as'=> 'notice.delete','uses'=>'NoticeController@destroy']);
+});
+
