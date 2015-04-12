@@ -24,6 +24,11 @@
                     <i class="fa fa-th"></i> <span>Events</span>
                 </a>
             </li>
+            <li>
+                <a href="{{route('event.index')}}">
+                    <i class="fa fa-th"></i> <span>Result</span>
+                </a>
+            </li>
 
             <li class="header">Quick Links</li>
             <li><a href="#"><i class="fa fa-circle-o text-info"></i> View Site</a></li>
