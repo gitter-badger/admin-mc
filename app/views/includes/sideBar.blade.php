@@ -19,6 +19,12 @@
                     <i class="fa fa-th"></i> <span>Notice</span>
                 </a>
             </li>
+            <li>
+                <a href="{{route('notice.index')}}">
+                    <i class="fa fa-th"></i> <span>Events</span>
+                </a>
+            </li>
+
             <li class="header">Quick Links</li>
             <li><a href="#"><i class="fa fa-circle-o text-info"></i> View Site</a></li>
             <li><a href="{{route('passwordReset')}}"><i class="fa fa-circle-o text-danger"></i>Change Password</a></li>
