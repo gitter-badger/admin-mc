@@ -12,6 +12,7 @@
                 <ul class="treeview-menu">
                     <li><a href="{{route('passwordReset')}}"><i class="fa fa-circle-o"></i>Admin Settings</a></li>
                 </ul>
+
             </li>
 
             <li>
@@ -29,6 +30,7 @@
                     <i class="fa fa-th"></i> <span>Result</span>
                 </a>
             </li>
+
 
             <li class="header">Quick Links</li>
             <li><a href="#"><i class="fa fa-circle-o text-info"></i> View Site</a></li>
