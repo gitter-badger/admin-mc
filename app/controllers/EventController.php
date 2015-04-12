@@ -11,7 +11,6 @@ class EventController extends \BaseController {
 	public function index()
 	{
         return View::make('events.index')
-            ->with('events',Notice::with('user')->get())
             ->with('title',"Events");
 	}
 

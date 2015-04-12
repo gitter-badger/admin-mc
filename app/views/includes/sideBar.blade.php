@@ -20,7 +20,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{route('notice.index')}}">
+                <a href="{{route('event.index')}}">
                     <i class="fa fa-th"></i> <span>Events</span>
                 </a>
             </li>
