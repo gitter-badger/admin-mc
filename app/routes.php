@@ -53,5 +53,14 @@ Route::group(['before'=>'auth|AdminTeacherStuff'],function(){
 
     //Events Module
     Route::get('events',['as'=> 'event.index','uses'=>'EventController@index']);
+
+    //Result Module
+    Route::get('results',['as'=> 'result.index','uses'=>'ResultController@index']);
+    Route::get('results/create',['as'=> 'result.create','uses'=>'ResultController@create']);
+    Route::post('results',['as'=> 'result.store','uses'=>'ResultController@store']);
+    Route::get('results/{id}/edit',['as'=> 'result.edit','uses'=>'ResultController@edit']);
+    Route::put('results/{id}',['as'=> 'result.update','uses'=>'ResultController@update']);
+    Route::delete('results/{id}',['as'=> 'result.delete','uses'=>'ResultController@destroy']);
+
 });
 
