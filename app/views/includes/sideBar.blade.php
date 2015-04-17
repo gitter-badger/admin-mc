@@ -20,8 +20,8 @@
                     <i class="fa fa-dashboard"></i> <span>Home</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{route('passwordReset')}}"><i class="fa fa-circle-o"></i>Principal's Message</a></li>
-                    <li><a href="{{route('passwordReset')}}"><i class="fa fa-circle-o"></i>Vice Principal's Message</a></li>
+                    <li><a href="{{ URL::route('message', array('designation' => 'principal')) }}"><i class="fa fa-circle-o"></i>Principal's Message</a></li>
+                    <li><a href="{{ URL::route('message', array('designation' => 'vice-principal')) }}"><i class="fa fa-circle-o"></i>Vice Principal's Message</a></li>
                 </ul>
 
             </li>
@@ -102,7 +102,7 @@
 
             </li>
             <li>
-                <a href="{{route('result.index')}}">
+                <a href="{{route('contact')}}">
                     <i class="fa fa-th"></i> <span>Contact</span>
                 </a>
             </li>

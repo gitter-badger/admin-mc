@@ -62,5 +62,13 @@ Route::group(['before'=>'auth|AdminTeacherStuff'],function(){
     Route::put('results/{id}',['as'=> 'result.update','uses'=>'ResultController@update']);
     Route::delete('results/{id}',['as'=> 'result.delete','uses'=>'ResultController@destroy']);
 
+
+    //Contact Module
+    Route::get('contact',['as'=> 'contact','uses'=>'ContactController@edit']);
+    Route::put('contact',['as'=> 'contact.store','uses'=>'ContactController@update']);
+
+    //Message Module
+    Route::get('message/{designation}',['as'=> 'message','uses'=>'MessageController@edit']);
+    Route::put('message',['as'=> 'message.store','uses'=>'MessageController@update']);
 });
 
