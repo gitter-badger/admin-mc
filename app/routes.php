@@ -51,6 +51,15 @@ Route::group(['before'=>'auth|AdminTeacherStuff'],function(){
 	Route::put('notices/{id}',['as'=> 'notice.update','uses'=>'NoticeController@update']);
 	Route::delete('notices/{id}',['as'=> 'notice.delete','uses'=>'NoticeController@destroy']);
 
+	//Department Module
+
+	Route::get('departments',['as'=> 'department.index','uses'=>'DepartmentController@index']);
+	Route::get('department/create',['as'=> 'department.create','uses'=>'DepartmentController@create']);
+	Route::post('department',['as'=> 'department.store','uses'=>'DepartmentController@store']);
+	Route::get('department/{id}/edit',['as'=> 'department.edit','uses'=>'DepartmentController@edit']);
+	Route::put('department/{id}',['as'=> 'department.update','uses'=>'DepartmentController@update']);
+	Route::delete('departments/{id}',['as'=> 'department.delete','uses'=>'DepartmentController@destroy']);
+
     //Events Module
     Route::get('events',['as'=> 'event.index','uses'=>'EventController@index']);
 
@@ -70,5 +79,9 @@ Route::group(['before'=>'auth|AdminTeacherStuff'],function(){
     //Message Module
     Route::get('message/{designation}',['as'=> 'message','uses'=>'MessageController@edit']);
     Route::put('message',['as'=> 'message.store','uses'=>'MessageController@update']);
+});
+
+Route::get('test',function(){
+	return Helpers::createDepartmentKey("Islamic Studies");
 });
 

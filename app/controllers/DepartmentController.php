@@ -10,7 +10,9 @@ class DepartmentController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		return View::make('departments.index')
+					->with('departments',Department::all())
+					->with('title',"Departments");
 	}
 
 	/**
@@ -21,7 +23,8 @@ class DepartmentController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('departments.create')
+					->with('title','Create Department');
 	}
 
 	/**
@@ -32,7 +35,28 @@ class DepartmentController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$rules = [
+					'name'           => 'required'
+
+		];
+
+		$data = Input::all();
+
+		$validator = Validator::make($data,$rules);
+
+		if($validator->fails()){
+			return Redirect::back()->withInput()->withErrors($validator);
+		}
+
+		$department = new Department();
+		$department->name = $data['name'];
+		$department->key = Helpers::createDepartmentKey($data['name']);
+
+		if($department->save()){
+			return Redirect::route('department.index')->with('success',"Department Created Successfully");
+		}else{
+			return Redirect::route('department.index')->with('error',"Something went wrong.Try again");
+		}
 	}
 
 	/**
@@ -56,7 +80,14 @@ class DepartmentController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		try{
+			$department = Department::findOrFail($id);
+			return View::make('departments.edit')
+						->with('department',$department)
+						->with('title','Edit Department');
+		}catch(Exception $ex){
+			return Redirect::route('department.index')->with('error','Something went wrong.Try Again.');
+		}
 	}
 
 	/**
@@ -68,7 +99,24 @@ class DepartmentController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$data = Input::all();
+
+		$validator = Validator::make($data,Department::rules($id));
+
+		if($validator->fails()){
+			return Redirect::back()->withInput()->withErrors($validator);
+		}
+
+		$department = Department::find($id);
+
+		$department->name = $data['name'];
+		$department->key = Helpers::createDepartmentKey($data['name']);
+
+		if($department->save()){
+			return Redirect::route('department.index')->with('success',"Department Created Successfully");
+		}else{
+			return Redirect::route('department.index')->with('error',"Something went wrong.Try again");
+		}
 	}
 
 	/**

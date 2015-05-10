@@ -12,7 +12,15 @@ class CreateDepartmentsTable extends Migration {
 	 */
 	public function up()
 	{
-		//
+		Schema::create('departments', function(Blueprint $table)
+		{
+			$table->engine = 'InnoDB';
+			$table->increments('id');
+			$table->string('name')->unique();
+			$table->string('key');
+
+			$table->timestamps();
+		});
 	}
 
 	/**
@@ -22,7 +30,7 @@ class CreateDepartmentsTable extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop('departments');
 	}
 
 }
