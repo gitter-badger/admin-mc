@@ -8,16 +8,17 @@
                 <header class="panel-heading clearfix">
                     {{ $title }}
                     <span class="pull-right">
-                            <a class="btn btn-success btn-sm btn-new-user" href="{{ URL::route('notice.create') }}">Create Notice</a>
+                            <a class="btn btn-success btn-sm btn-new-user" href="{{ URL::route('event.create') }}">Create Event</a>
 					</span>
                 </header>
                 <div class="panel-body">
-                    @if(count($notices))
+                    @if(count($events))
                         <table class="display table table-bordered table-striped" id="example">
                             <thead>
                             <tr>
-                                <th>Notice Title</th>
-                                <th>Notice Description</th>
+                                <th>Event Title</th>
+                                <th>Event Description</th>
+                                <th>Event Place</th>
                                 <th>Created By</th>
                                 <th>Created At</th>
                                 <th>Updated At</th>
@@ -26,18 +27,19 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($notices as $notice)
+                            @foreach($events as $event)
                                 <tr>
-                                    <td>{{ $notice->title }}</td>
-                                    <td>{{{ $notice->description }}}</td>
-                                    <td>{{ $notice->user->first_name." ".$notice->user->last_name }}</td>
-                                    <td>{{ $notice->created_at->toDayDateTimeString() }}</td>
-                                    <td>{{ $notice->updated_at->toDayDateTimeString() }}</td>
+                                    <td>{{ $event->title }}</td>
+                                    <td>{{ Str::limit(strip_tags($event->description),80,'...') }}</td>
+                                    <td>{{{ $event->place }}}</td>
+                                    <td>{{ $event->user->first_name." ".$event->user->last_name }}</td>
+                                    <td>{{ $event->created_at->toDayDateTimeString() }}</td>
+                                    <td>{{ $event->updated_at->toDayDateTimeString() }}</td>
 
 
                                     <td class="text-center">
-                                            <a class="btn btn-xs btn-success btn-edit" href="{{ URL::route('notice.edit', array('id' => $notice->id)) }}">Edit</a>
-                                            <a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn" data-toggle="modal" data-target="#deleteConfirm" deleteId="{{ $notice->id }}">Delete</a>
+                                        <a class="btn btn-xs btn-success btn-edit" href="{{ URL::route('event.edit', array('id' => $event->id)) }}">Edit</a>
+                                        <a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn" data-toggle="modal" data-target="#deleteConfirm" deleteId="{{ $event->id }}">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -64,7 +66,7 @@
                     Are you sure to delete?
                 </div>
                 <div class="modal-footer">
-                    {{ Form::open(array('route' => array('notice.delete', 0), 'method'=> 'delete', 'class' => 'deleteForm')) }}
+                    {{ Form::open(array('route' => array('event.delete', 0), 'method'=> 'delete', 'class' => 'deleteForm')) }}
                     <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
                     {{ Form::submit('Yes, Delete', array('class' => 'btn btn-success')) }}
                     {{ Form::close() }}
@@ -96,7 +98,7 @@
             // delete
             $('.deleteBtn').click(function() {
                 var deleteId = $(this).attr('deleteId');
-                var url = "<?php echo URL::route('notice.index'); ?>";
+                var url = "<?php echo URL::route('event.index'); ?>";
                 $(".deleteForm").attr("action", url+'/'+deleteId);
             });
         });

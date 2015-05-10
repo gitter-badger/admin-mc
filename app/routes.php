@@ -60,8 +60,7 @@ Route::group(['before'=>'auth|AdminTeacherStuff'],function(){
 	Route::put('department/{id}',['as'=> 'department.update','uses'=>'DepartmentController@update']);
 	Route::delete('departments/{id}',['as'=> 'department.delete','uses'=>'DepartmentController@destroy']);
 
-    //Events Module
-    Route::get('events',['as'=> 'event.index','uses'=>'EventController@index']);
+
 
     //Result Module
     Route::get('results',['as'=> 'result.index','uses'=>'ResultController@index']);
@@ -79,6 +78,15 @@ Route::group(['before'=>'auth|AdminTeacherStuff'],function(){
     //Message Module
     Route::get('message/{designation}',['as'=> 'message','uses'=>'MessageController@edit']);
     Route::put('message',['as'=> 'message.store','uses'=>'MessageController@update']);
+
+	//Events Module
+
+	Route::get('events',['as'=> 'event.index','uses'=>'EventController@index']);
+	Route::get('event/create',['as'=> 'event.create','uses'=>'EventController@create']);
+	Route::post('event',['as'=> 'event.store','uses'=>'EventController@store']);
+	Route::get('event/{id}/edit',['as'=> 'event.edit','uses'=>'EventController@edit']);
+	Route::put('event/{id}',['as'=> 'event.update','uses'=>'EventController@update']);
+	Route::delete('events/{id}',['as'=> 'event.delete','uses'=>'EventController@destroy']);
 });
 
 Route::get('test',function(){

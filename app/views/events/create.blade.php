@@ -7,24 +7,31 @@
             @include('includes.alert')
             <div class="box box-info">
 
-                {{ Form::open(['route' => 'notice.store', 'method' => 'post', 'class' => 'form-signin']) }}
+                {{ Form::open(['route' => 'event.store', 'method' => 'post', 'class' => 'form-signin']) }}
                 <div class="box-body">
                     <div class="form-group">
-                        {{ Form::label('title', 'Notice Title', array('class' => 'control-label')) }}
+                        {{ Form::label('title', 'Event Title', array('class' => 'control-label')) }}
 
-                        {{ Form::text('title', '', array('class' => 'form-control', 'placeholder' => 'Notice Title', 'autofocus')) }}
+                        {{ Form::text('title', '', array('class' => 'form-control', 'placeholder' => 'Event Title', 'autofocus')) }}
 
                     </div>
 
 
                     <div class="form-group">
-                        {{ Form::label('description', 'Notice Description', array('class' => 'control-label')) }}
-                        {{ Form::textarea('description', '', array('class' => 'form-control', 'placeholder' => 'Notice Description','id'=>'editor')) }}
+                        {{ Form::label('description', 'Event Description', array('class' => 'control-label')) }}
+                        {{ Form::textarea('description', '', array('class' => 'form-control', 'placeholder' => 'Event Description','id'=>'editor')) }}
+
+                    </div>
+
+                    <div class="form-group">
+                        {{ Form::label('place', 'Event Place', array('class' => 'control-label')) }}
+
+                        {{ Form::text('place', '', array('class' => 'form-control', 'placeholder' => 'Event Place')) }}
 
                     </div>
                 </div>
                 <div class="box-footer">
-                    {{ Form::submit('Create Notice', array('class' => 'btn btn-success')) }}
+                    {{ Form::submit('Create Event', array('class' => 'btn btn-success')) }}
                 </div>
                 {{ Form::close() }}
             </div>

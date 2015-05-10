@@ -10,8 +10,9 @@ class EventController extends \BaseController {
 	 */
 	public function index()
 	{
-        return View::make('events.index')
-            ->with('title',"Events");
+		return View::make('events.index')
+					->with('events',AllEvent::all())
+					->with('title',"Events");
 	}
 
 	/**
@@ -22,7 +23,8 @@ class EventController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('events.create')
+					->with('title','Create Event');
 	}
 
 	/**
@@ -33,7 +35,32 @@ class EventController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$rules = [
+					'title' => 'required',
+					'place' => 'required',
+					'description' => 'required'
+		];
+
+		$data = Input::all();
+
+		$validator = Validator::make($data,$rules);
+
+		if($validator->fails()){
+			return Redirect::back()->withInput()->withErrors($validator);
+		}
+
+		$event = new AllEvent();
+
+		$event->title = $data['title'];
+		$event->description = $data['description'];
+		$event->place = $data['place'];
+		$event->user_id = Auth::user()->id;
+
+		if($event->save()){
+			return Redirect::route('event.index')->with('success',"Event Created Successfully");
+		}else{
+			return Redirect::route('event.index')->with('error',"Something went wrong.Try again");
+		}
 	}
 
 	/**
@@ -57,7 +84,14 @@ class EventController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		try{
+			$event = AllEvent::findOrFail($id);
+			return View::make('events.edit')
+						->with('event',$event)
+						->with('title','Edit Event');
+		}catch(Exception $ex){
+			return Redirect::route('event.index')->with('error','Something went wrong.Try Again.');
+		}
 	}
 
 	/**
@@ -69,7 +103,32 @@ class EventController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$rules = [
+					'title' => 'required',
+					'place' => 'required',
+					'description' => 'required'
+		];
+
+		$data = Input::all();
+
+		$validator = Validator::make($data,$rules);
+
+		if($validator->fails()){
+			return Redirect::back()->withInput()->withErrors($validator);
+		}
+
+		$event = AllEvent::find($id);
+
+		$event->title = $data['title'];
+		$event->description = $data['description'];
+		$event->place = $data['place'];
+		$event->user_id = Auth::user()->id;
+
+		if($event->save()){
+			return Redirect::route('event.index')->with('success',"Event Updated Successfully");
+		}else{
+			return Redirect::route('event.index')->with('error',"Something went wrong.Try again");
+		}
 	}
 
 	/**
