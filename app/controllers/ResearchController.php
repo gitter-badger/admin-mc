@@ -116,7 +116,7 @@ class ResearchController extends \BaseController {
 		$research->description = $data['description'];
 
 		if($research->save()){
-			return Redirect::route('research.index')->with('success',"Research Created Successfully");
+			return Redirect::route('research.index')->with('success',"Research Updated Successfully");
 		}else{
 			return Redirect::route('research.index')->with('error',"Something went wrong.Try again");
 		}

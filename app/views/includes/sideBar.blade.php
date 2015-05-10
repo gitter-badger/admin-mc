@@ -27,7 +27,7 @@
             </li>
 
             <li>
-                <a href="{{route('notice.index')}}">
+                <a href="{{route('about.index')}}">
                     <i class="fa fa-th"></i> <span>About us</span>
                 </a>
             </li>

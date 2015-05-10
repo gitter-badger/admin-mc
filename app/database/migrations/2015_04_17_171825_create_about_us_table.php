@@ -12,7 +12,13 @@ class CreateAboutUsTable extends Migration {
 	 */
 	public function up()
 	{
-		//
+		Schema::create('abouts', function(Blueprint $table)
+		{
+			$table->engine = 'InnoDB';
+			$table->increments('id');
+			$table->text('description');
+			$table->timestamps();
+		});
 	}
 
 	/**
@@ -22,7 +28,7 @@ class CreateAboutUsTable extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop('abouts');
 	}
 
 }

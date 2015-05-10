@@ -1,5 +1,7 @@
 <?php
 
 class About extends \Eloquent {
-	protected $fillable = [];
+	protected $guarded = ['id'];
+	protected $table = 'abouts';
+
 }
