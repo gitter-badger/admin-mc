@@ -10,7 +10,9 @@ class ResearchController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		return View::make('researches.index')
+					->with('researches',Research::all())
+					->with('title',"Researches");
 	}
 
 	/**
@@ -21,7 +23,8 @@ class ResearchController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('researches.create')
+					->with('title','Create Research');
 	}
 
 	/**
@@ -32,7 +35,27 @@ class ResearchController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$rules = [
+					'description'           => 'required'
+
+		];
+
+		$data = Input::all();
+
+		$validator = Validator::make($data,$rules);
+
+		if($validator->fails()){
+			return Redirect::back()->withInput()->withErrors($validator);
+		}
+
+		$research = new Research();
+		$research->description = $data['description'];
+
+		if($research->save()){
+			return Redirect::route('research.index')->with('success',"Research Created Successfully");
+		}else{
+			return Redirect::route('research.index')->with('error',"Something went wrong.Try again");
+		}
 	}
 
 	/**
@@ -56,7 +79,14 @@ class ResearchController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		try{
+			$research = Research::findOrFail($id);
+			return View::make('researches.edit')
+						->with('research',$research)
+						->with('title','Edit Research');
+		}catch(Exception $ex){
+			return Redirect::route('research.index')->with('error','Something went wrong.Try Again.');
+		}
 	}
 
 	/**
@@ -68,7 +98,28 @@ class ResearchController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$rules = [
+					'description'           => 'required'
+
+		];
+
+		$data = Input::all();
+
+		$validator = Validator::make($data,$rules);
+
+		if($validator->fails()){
+			return Redirect::back()->withInput()->withErrors($validator);
+		}
+
+		$research = Research::find($id);
+
+		$research->description = $data['description'];
+
+		if($research->save()){
+			return Redirect::route('research.index')->with('success',"Research Created Successfully");
+		}else{
+			return Redirect::route('research.index')->with('error',"Something went wrong.Try again");
+		}
 	}
 
 	/**

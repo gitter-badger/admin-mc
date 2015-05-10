@@ -87,6 +87,15 @@ Route::group(['before'=>'auth|AdminTeacherStuff'],function(){
 	Route::get('event/{id}/edit',['as'=> 'event.edit','uses'=>'EventController@edit']);
 	Route::put('event/{id}',['as'=> 'event.update','uses'=>'EventController@update']);
 	Route::delete('events/{id}',['as'=> 'event.delete','uses'=>'EventController@destroy']);
+
+
+	//Research Module
+	Route::get('researches',['as'=> 'research.index','uses'=>'ResearchController@index']);
+	Route::get('research/create',['as'=> 'research.create','uses'=>'ResearchController@create']);
+	Route::post('research',['as'=> 'research.store','uses'=>'ResearchController@store']);
+	Route::get('research/{id}/edit',['as'=> 'research.edit','uses'=>'ResearchController@edit']);
+	Route::put('research/{id}',['as'=> 'research.update','uses'=>'ResearchController@update']);
+	Route::delete('researches/{id}',['as'=> 'research.delete','uses'=>'ResearchController@destroy']);
 });
 
 Route::get('test',function(){

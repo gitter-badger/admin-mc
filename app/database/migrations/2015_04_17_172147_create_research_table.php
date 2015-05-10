@@ -12,7 +12,13 @@ class CreateResearchTable extends Migration {
 	 */
 	public function up()
 	{
-		//
+		Schema::create('researches', function(Blueprint $table)
+		{
+			$table->engine = 'InnoDB';
+			$table->increments('id');
+			$table->text('description');
+			$table->timestamps();
+		});
 	}
 
 	/**
@@ -22,7 +28,7 @@ class CreateResearchTable extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop('researches');
 	}
 
 }
