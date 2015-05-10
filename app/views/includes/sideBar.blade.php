@@ -51,7 +51,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{route('notice.index')}}">
+                <a href="{{route('research.index')}}">
                     <i class="fa fa-th"></i> <span>Research</span>
                 </a>
             </li>
