@@ -46,7 +46,7 @@
 
             </li>
             <li>
-                <a href="{{route('notice.index')}}">
+                <a href="{{route('department.index')}}">
                     <i class="fa fa-th"></i> <span>Departments</span>
                 </a>
             </li>
