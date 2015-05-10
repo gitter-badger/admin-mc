@@ -1,0 +1,1 @@
+F:\apps\xampp\htdocs\infancy\mc-college-admin\app/views/hostels/show.blade.php

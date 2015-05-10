@@ -107,6 +107,18 @@
                 </a>
             </li>
 
+            <li>
+                <a href="{{route('library.index')}}">
+                    <i class="fa fa-th"></i> <span>Library</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{{route('hostel.index')}}">
+                    <i class="fa fa-th"></i> <span>Hostel</span>
+                </a>
+            </li>
+
 
 
 

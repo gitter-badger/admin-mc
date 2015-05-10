@@ -104,6 +104,22 @@ Route::group(['before'=>'auth|AdminTeacherStuff'],function(){
 	Route::get('about/{id}/edit',['as'=> 'about.edit','uses'=>'AboutController@edit']);
 	Route::put('about/{id}',['as'=> 'about.update','uses'=>'AboutController@update']);
 	Route::delete('abouts/{id}',['as'=> 'about.delete','uses'=>'AboutController@destroy']);
+
+	//Hostel Module
+	Route::get('hostels',['as'=> 'hostel.index','uses'=>'HostelController@index']);
+	Route::get('hostel/create',['as'=> 'hostel.create','uses'=>'HostelController@create']);
+	Route::post('hostel',['as'=> 'hostel.store','uses'=>'HostelController@store']);
+	Route::get('hostel/{id}/edit',['as'=> 'hostel.edit','uses'=>'HostelController@edit']);
+	Route::put('hostel/{id}',['as'=> 'hostel.update','uses'=>'HostelController@update']);
+	Route::delete('hostels/{id}',['as'=> 'hostel.delete','uses'=>'HostelController@destroy']);
+
+	//About Module
+	Route::get('libraries',['as'=> 'library.index','uses'=>'LibraryController@index']);
+	Route::get('library/create',['as'=> 'library.create','uses'=>'LibraryController@create']);
+	Route::post('library',['as'=> 'library.store','uses'=>'LibraryController@store']);
+	Route::get('library/{id}/edit',['as'=> 'library.edit','uses'=>'LibraryController@edit']);
+	Route::put('library/{id}',['as'=> 'library.update','uses'=>'LibraryController@update']);
+	Route::delete('libraries/{id}',['as'=> 'library.delete','uses'=>'LibraryController@destroy']);
 });
 
 Route::get('test',function(){
